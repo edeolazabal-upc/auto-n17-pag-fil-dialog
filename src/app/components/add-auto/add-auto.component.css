@@ -1,0 +1,12 @@
+.auto-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 42%;
+  }
+  .button {
+    align-items: center;
+    width:20%;
+    margin-left: 10px;
+  }
+  
