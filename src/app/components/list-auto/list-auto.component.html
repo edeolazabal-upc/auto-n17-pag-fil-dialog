@@ -1,7 +1,15 @@
 <mat-card>
     <h2>List of Autos</h2>
-    <button mat-raised-button color="primary" [routerLink]="'/addauto'">add</button>
-  
+
+    <mat-card-header>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Buscar Auto por Marca</mat-label>
+          <input matInput #input (keyup)="filterAutoByBrand(input.value)" />
+        </mat-form-field>
+      </div>
+    </mat-card-header>
+
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   
   
@@ -30,21 +38,11 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let element; let i = index">
-          <button
-            mat-icon-button
-            color="primary"
-            (click)="
-              edit(
-                element.id,
-                element.brand,
-                element.price
-              )
-            "
-          >
+          <button mat-icon-button color="primary" routerLink="/editAuto/{{element.id}}">
             <mat-icon aria-label="Edit">edit</mat-icon>
           </button>
   
-          <button mat-icon-button color="primary" (click)="delete(element.id)">
+          <button mat-icon-button color="primary" (click)="showDialog(element.id)">
             <mat-icon aria-label="Delete">delete</mat-icon>
           </button>
         </td>
@@ -53,5 +51,12 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-  
+
+    <mat-paginator
+      [pageSizeOptions]="[3, 6, 9]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+
   </mat-card>

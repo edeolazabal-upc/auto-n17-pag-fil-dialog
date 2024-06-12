@@ -8,7 +8,7 @@ export const routes: Routes = [
   {path: '', redirectTo: 'listauto', pathMatch: 'full'},
   {path: 'listauto', component: ListAutoComponent},
   {path: 'addauto', component: AddAutoComponent},
-
+  {path: 'editAuto/:id', component: AddAutoComponent},
 ];
 
 @NgModule({

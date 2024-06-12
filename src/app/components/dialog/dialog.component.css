@@ -1,0 +1,8 @@
+button {
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+  .mat-dialog-actions .mat-dialog-content {
+    overflow-y: hidden;
+  }
+  
