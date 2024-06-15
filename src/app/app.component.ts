@@ -17,4 +17,32 @@ import { AutoService } from './services/auto.service';
 })
 export class AppComponent {
   title = 'auto-app';
+
+  constructor() {
+    this.obtener_session_storage()
+   // this.grabar_session_storage()
+  }
+
+  grabar_session_storage() {
+    let rol: string = 'manager'
+    let persona = {
+      nombre: 'Juan',
+      edad: 25,
+      coord: {
+        lat: 10,
+        long: -11
+      }
+    }
+
+    sessionStorage.setItem('rol', rol)
+    sessionStorage.setItem('persona', JSON.stringify(persona))
+  }
+
+  obtener_session_storage() {
+    let nombre = sessionStorage.getItem('rol')
+    let persona = sessionStorage.getItem('persona')
+    
+    console.log(nombre)
+    console.log(persona)
+  }
 }

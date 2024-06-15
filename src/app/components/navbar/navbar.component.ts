@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatButtonModule } from '@angular/material/button'
 import { RouterModule } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -11,11 +11,21 @@ import { MatIconModule } from '@angular/material/icon';
     MatToolbarModule,
     MatButtonModule,
     RouterModule,
-    MatIconModule,
+    CommonModule
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  isButtonDisabled: boolean = false
+  isButtonVisible: boolean = true
+
+  ngOnInit(): void {
+    const sessionData = sessionStorage.getItem('rol') 
+    if (sessionData) {
+      this.isButtonDisabled = sessionData === 'manager'
+      this.isButtonVisible = sessionData !== 'manager'
+    }  
+  }
 
 }

@@ -1,6 +1,13 @@
 <mat-card>
     <h2>List of Autos</h2>
-
+    <div class=""button-container>
+    <button mat-raised-button color="primary" (click)="exporter.exportTable('csv')">csv</button>    
+    <button mat-raised-button color="primary" (click)="exporter.exportTable('xlsx')">xlsx</button>    
+    <button mat-raised-button color="primary" (click)="exporter.exportTable('txt')">txt</button>    
+    <button mat-raised-button color="primary" (click)="exporter.exportTable('json')">json</button>    
+    <button mat-raised-button color="primary" (click)="downloadPdf()">pdf</button>    
+  </div>
+  
     <mat-card-header>
       <div>
         <mat-form-field appearance="fill">
@@ -10,7 +17,7 @@
       </div>
     </mat-card-header>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table id="table-pdf" mat-table matTableExporter [dataSource]="dataSource" class="mat-elevation-z8" #exporter="matTableExporter">
   
   
       <!--- Note that these columns can be defined in any order.
@@ -60,3 +67,24 @@
     </mat-paginator>
 
   </mat-card>
+
+   <!-- Tabla oculta para jsPDF -->
+<table id="hidden_table" style="display:none">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Brand</th>
+      <th>Price</th>
+      <!-- Más encabezados si es necesario -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of allData">
+      <td>{{ row.id }}</td>
+      <td>{{ row.brand }}</td>
+      <td>{{ row.price }}</td>
+      <!-- Más columnas si es necesario -->
+    </tr>
+  </tbody>
+</table>
+

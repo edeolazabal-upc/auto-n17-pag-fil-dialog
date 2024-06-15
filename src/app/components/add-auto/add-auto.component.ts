@@ -4,16 +4,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { AutoService } from '../../services/auto.service';
 import { Auto } from '../../model/auto';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
-import { MatSelectModule } from '@angular/material/select';
+
 
 @Component({
   selector: 'app-add-auto',
@@ -24,11 +21,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatSnackBarModule,
     MatButtonModule,
     MatInputModule,
-    MatCheckboxModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule,
-    MatOptionModule,
     CommonModule,
     ReactiveFormsModule
   ],

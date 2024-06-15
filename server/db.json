@@ -2,8 +2,8 @@
   "autos": [
     {
       "id": "2",
-      "brand": "Mazda",
-      "price": 23000
+      "brand": "Mazda 6",
+      "price": 23500
     },
     {
       "id": "5",
@@ -13,12 +13,7 @@
     {
       "id": "6",
       "brand": "Toyota",
-      "price": 18500
-    },
-    {
-      "id": "7",
-      "brand": "Nissan",
-      "price": 17000
+      "price": 12300
     },
     {
       "id": "8",
@@ -36,9 +31,14 @@
       "price": 23000
     },
     {
-      "id": 0,
+      "id": "0",
       "brand": "Subaru Impreza",
       "price": 23000
+    },
+    {
+      "id": 0,
+      "brand": "Hyundai",
+      "price": 13500
     }
   ]
 }

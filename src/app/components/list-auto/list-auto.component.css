@@ -9,4 +9,9 @@ button {
   ul li {
     list-style: none;
   }
+  .button-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
   

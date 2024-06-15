@@ -3,6 +3,7 @@
       <span>Auto Management</span>
       <span class="example-spacer"></span>
       <button mat-raised-button color="primary" [routerLink]="'/listauto'">List</button>
-      <button mat-raised-button color="primary" [routerLink]="'/addauto'">Add</button>
+      <button mat-raised-button color="primary" [routerLink]="'/addauto'" *ngIf="isButtonVisible"
+      [disabled]="isButtonDisabled">Add</button>
     </mat-toolbar-row>
   </mat-toolbar>

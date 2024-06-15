@@ -14,6 +14,10 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableExporterModule } from 'mat-table-exporter';
+import  jsPDF  from 'jspdf';
+import autoTable from 'jspdf-autotable'
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-list-auto',
@@ -26,7 +30,9 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatPaginatorModule,
     RouterModule,
-    MatInputModule
+    MatInputModule,
+    MatTableExporterModule,
+    CommonModule
   ],
   templateUrl: './list-auto.component.html',
   styleUrl: './list-auto.component.css'
@@ -43,7 +49,7 @@ export class ListAutoComponent implements OnInit {
   displayedColumns: string[] = ['id', 'brand', 'price', 'actions']
 
   dataSource = new MatTableDataSource<Auto>()
-
+  allData: Auto[] = []
 
   @ViewChild(MatPaginator, {static: true}) paginator!:MatPaginator
 
@@ -53,6 +59,7 @@ export class ListAutoComponent implements OnInit {
   getAutos() {
     this.autoService.getAutos().subscribe((data: Auto[]) => {
       this.dataSource = new MatTableDataSource(data)
+      this.allData = data
       this.dataSource.paginator = this.paginator
     })
   }
@@ -114,5 +121,12 @@ showDialog(id: number): void {
         this.delete(id)
       }
     })
+}
+
+downloadPdf() {
+  const doc = new jsPDF()
+  autoTable(doc, {html: "#hidden_table"})
+  doc.save("auto.pdf")
+
 }
 }
