@@ -39,10 +39,10 @@ export class AppComponent {
   }
 
   obtener_session_storage() {
-    let nombre = sessionStorage.getItem('rol')
+    let rol = sessionStorage.getItem('rol')
     let persona = sessionStorage.getItem('persona')
-    
-    console.log(nombre)
-    console.log(persona)
+
+    console.log("nombre:", rol)
+    console.log("persona:", persona)
   }
 }
